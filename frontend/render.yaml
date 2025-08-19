@@ -1,0 +1,7 @@
+static_sites:
+  - name: eagle-events
+    buildCommand: npm install && npm run build
+    publicPath: /build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://eagle-events-api.onrender.com  # Update this with your actual backend URL after deployment

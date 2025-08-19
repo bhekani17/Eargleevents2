@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: eagle-events-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: eagle-events-db
+          property: connectionString
+    plan: free
+
+databases:
+  - name: eagle-events-db
+    databaseName: eagle-events
+    user: eagle-events-user
+    plan: free
